@@ -1,0 +1,26 @@
+ALGORITHM algorithm_name
+VAR
+    v:integer
+    l:INTEGER
+    w:INTEGER:=1
+    s:STRING
+    i:INTEGER:=0
+BEGIN
+v:=0
+s:=""
+    REPEAT
+    Write("type a sentence")
+    read(s)
+    UNTIL(s<>"" && s[s.length -1]=".")
+    l=s.length
+
+FOR i FROM 0 TO l-1 STEP 1  DO
+    IF (s[i]=" "&& i>1) w:=w+1  
+    END_IF
+    IF (s[i]="a"||"i"||"u"||"o"||"e"||"y" ) v:=v+1
+    END_IF
+END_FOR
+    Write("the length of the sentence is",l)
+    Write("the number of words is",w)
+    Write("the number of vowels is",v)
+END
