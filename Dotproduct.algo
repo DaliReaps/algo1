@@ -1,0 +1,86 @@
+PROCEDURE saisie(VAR s:ARRAY_OF INTEGER ,x:INTEGER)
+VAR
+    i:INTEGER:=0
+
+
+BEGIN
+    FOR  i FROM 0 TO x-1 DO
+    REPEAT
+        read(s[i])
+    UNTIL(s[i]<>NULL)
+    END_FOR
+END
+
+
+
+PROCEDURE dot_product(vect1 ,vect2:ARRAY_OF FLOAT,VAR scalar_product:FLOAT)
+VAR
+   k:INTEGER
+   scalar_product:FLOAT:=0
+BEGIN
+    IF (vect1.length<>vect2.length) THEN
+        Write("It's not possible to calculate the dot product of 2  vectors with different sizes")
+    ELSE
+        FOR i FROM 0 TO vect1.length-1  DO
+            scalar_product:=scalar_product+vect1[i]*vect2[i]
+        END_FOR
+    END_IF
+    
+END
+
+
+
+/*
+FUNCTION dot_product(vect1 ,vect2:ARRAY_OF FLOAT) : FLOAT
+VAR
+   k:INTEGER
+   scalar_product:FLOAT:=0
+BEGIN
+    IF (vect1.length<>vect2.length) THEN
+        Write("It's not possible to calculate the dot product of 2  vectors with different sizes")
+    ELSE
+        FOR i FROM 0 TO vect1.length  DO
+            scalar_product:=scalar_product+vect1[i]*vect2[i]
+        END_FOR
+    END_IF
+    IF (scalar_product=0) THEN
+        Write("the 2 vectors are orthogonal")
+    ELSE
+        Write("the 2 vectors aren't orthogonal and their scalar product equals", scalar_product)
+    END_IF
+    RETURN scalar_product ;
+END
+*/
+
+
+
+ALGORITHM Dotproduct
+VAR
+    vect1:ARRAY_OF FLOAT []
+    vect2:ARRAY_OF FLOAT []
+    n,m:INTEGER
+    scalar_product:  FLOAT
+BEGIN
+    REPEAT
+    Write("type the size of the first vector")
+    read(n)
+    Write("type the size of  second vector")
+    read(m)
+    UNTIL  (n>1 && m>1)
+    saisie(vect1 , n)
+    saisie(vect2 , m)
+
+    dot_product(vect1 ,vect2,scalar_product)
+    IF (scalar_product=0) THEN
+        Write("the 2 vectors are orthogonal")
+    ELSE
+        Write("the 2 vectors aren't orthogonal and their scalar product equals", scalar_product)
+    END_IF
+    /*
+    IF (dot_product(vect1,vect2)=0) THEN
+        Write("the 2 vectors are orthogonal")
+    ELSE
+        Write("the 2 vectors aren't orthogonal and their scalar product equals", dot_product(vect1,vect2))
+    END_IF
+    */
+END
