@@ -1,0 +1,21 @@
+ALGORITHM Learn_algo
+VAR
+    a:INTEGER
+    b:INTEGER
+    c:INTEGER
+    plus-grand:INTEGER
+BEGIN
+    plus-grand=0
+    REPEAT
+        Write("give an integer")
+        read(a)
+        Write("give another integer")
+        read(b)
+        Write("give another integer")
+        read(c)
+    UNTIL (a&b&c  <>  Null)
+    
+    IF (a>=b)  plus-grand:=a else plus-grand:=b
+    IF (plus-grand>=c)  plus-grand:=plus-grand else plus-grand:=c
+    Write("the biggest nunmber is", plus-grand)
+END

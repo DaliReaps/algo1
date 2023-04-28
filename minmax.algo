@@ -1,0 +1,37 @@
+FUNCTION mix_max(s:ARRAY_OF INTEGER ) : ARRAY_OF INTEGER[2];
+VAR
+    mm :ARRAY_OF INTEGER[2]
+    l: INTEGER
+    i,min,max:INTEGER :=0
+BEGIN
+    l:=s.length
+    FOR  i FROM 0 TO l-1 STEP 1  DO
+                 IF (s[i]>=max) THEN max:=S[i];
+                ELSE-IF (s[i]<=min) THEN min:=S[i];
+                END_IF    
+       
+    END_FOR
+    mm[0]:=min
+    mm[1]:=max
+    RETURN mm ;
+END
+ALGORITHM minmax_algo
+VAR
+    s:ARRAY_OF INTEGER[10]
+    i:INTEGER:=0
+    min,max:INTEGER
+    m:ARRAY_OF INTEGER[2]
+BEGIN
+    FOR i FROM  0  TO 9 DO
+    REPEAT
+        Write("write the element",i+1,"of the table")
+        read(s[i])
+    UNTIL (s[i]<>NULL)
+    END_FOR
+
+   m:= min_max(s)
+    min:=m[0]
+    max:=m[1]
+    Write("the minimum is",min,"and the maximum is",  max)
+
+END

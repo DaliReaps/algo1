@@ -1,0 +1,38 @@
+
+PROCEDURE saisie(VAR tab:ARRAY_OF INTEGER)
+VAR
+    i :INTEGER:=0
+BEGIN
+    FOR i FROM 0 TO 10   DO
+        REPEAT
+            Write("type the element"i+1)
+            read(tab[i])
+        UNTIL (tab[i]<>NULL)
+    END_FOR
+END
+
+
+PROCEDURE swap(VAR tab:ARRAY_OF INTEGER,x,y:INTEGER)
+VAR
+    x,y,temp:INTEGER
+
+BEGIN
+   temp:=tab[x]
+   tab[x]:=tab[y]
+   tab[y]:= temp
+END
+
+
+ALGORITHM insertion_sort
+VAR
+   i,j:INTEGER
+BEGIN
+    saisie(tab)
+    FOR i FROM 1 TO tab.length-1  DO
+     WHILE (tab[i]<tab[i-1] && i=0) DO
+        swap(tab,i,i-1)
+        i:=i-1
+     END_WHILE
+           
+    END_FOR
+END
