@@ -1,0 +1,37 @@
+PROCEDURE palindrome(ch:STRING,VAR i:INTEGER)
+VAR
+ ...
+BEGIN
+     IF (ch.length -2*i =1 || ch.length -2*i=0) THEN
+            Write("the word  is a palindrome")
+        ELSE_IF (ch[i]=ch[ch.length-i]) THEN
+            i:=i+1
+            palindrome(ch,i)
+        ELSE
+            Write("the word isn't a palindrome")
+    END_IF
+    
+END
+
+PROCEDURE saisie(ch:STRING)
+VAR
+...
+BEGIN
+    REPEAT
+        Write("type  a word ")
+        read(ch)
+    UNTIL (ch<>NULL and ch.length>1)
+END
+
+
+
+
+
+ALGORITHM algorithm_name
+VAR
+    ch:STRING
+    i:INTEGER:=0
+BEGIN
+    saisie(ch)
+    palindrome(ch,i)
+END
